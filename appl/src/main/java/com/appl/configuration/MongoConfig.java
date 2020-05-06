@@ -12,11 +12,12 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 import com.appl.aop.AlatMusikAspect;
 import com.mongodb.MongoClient;
-@EnableAspectJAutoProxy
+
 @Configuration
-@ComponentScan(basePackages = "com.appl.services")
+@ComponentScan(basePackages = "com.appl")
 @EnableMongoRepositories({ "com.appl.repositories" })
-public class MongoConfig extends AbstractMongoConfiguration {
+@EnableAspectJAutoProxy
+public class MongoConfig{
 	
 	@Bean
     public MongoDbFactory mongoDbFactory() {
@@ -35,14 +36,4 @@ public class MongoConfig extends AbstractMongoConfiguration {
 		return new AlatMusikAspect();
 	}
 
-	@Override
-	public MongoClient mongoClient() {
-		return new MongoClient();
-	}
-
-	@Override
-	protected String getDatabaseName() {
-		return "appl";
-	}
- 
 }

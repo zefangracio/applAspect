@@ -11,7 +11,7 @@ import org.aspectj.lang.annotation.Pointcut;
 
 @Aspect
 public class AlatMusikAspect {
-	@Pointcut("execution(** com.appl.services.AlatMusikService.create())")
+	@Pointcut("execution(** com.appl.services.AlatMusikService.create(..))")
 	public void show() {}
 	
 	@Before("show()")
